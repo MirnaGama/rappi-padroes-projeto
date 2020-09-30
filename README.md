@@ -18,6 +18,7 @@ O mesmo também poderá ganhar **pontos adicionais** se utilizar de _multiplicad
 - Transação
 - Multiplicador
 - Nível 
+- Período
 
 # Multiplicadores
 
