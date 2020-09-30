@@ -9,3 +9,9 @@ Projeto em java para a disciplina de Programação Avançada
 - Informar o status do usuário e seus benefícios
 - Atualizar status do usuário de acordo com o período
 - Popular o sistema *
+
+# Entidades
+- Usuário
+- Transação
+- Multiplicador
+- Nível 
