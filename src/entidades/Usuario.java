@@ -1,17 +1,36 @@
 package entidades;
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class Usuario {
 
-	private List<Transacao> transacoes = new ArrayList();
-	private Nivel nivel;
-	private Periodo periodoAtivo;
-	private List<Periodo> periodosAnteriores;
+    private String nome;
+    private Long cpf;
+    private List<Transacao> transacoes = new ArrayList<>();
+    private Nivel nivel;
+    private Periodo periodoAtivo;
+    private List<Periodo> periodosAnteriores;
 
-	public List<Transacao> getTransacoes() {
-		return transacoes;
-	}
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Long getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(Long cpf) {
+        this.cpf = cpf;
+    }
+
+    public List<Transacao> getTransacoes() {
+        return transacoes;
+    }
 
 	public void setTransacoes(List<Transacao> transacoes) {
 		this.transacoes = transacoes;
