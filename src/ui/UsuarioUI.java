@@ -15,19 +15,24 @@ public class UsuarioUI {
 
     private static void exibirMenuInicial() {
         System.out.println("--- BEM VINDO AO SUBSISTEMA RAPPI ---");
-        System.out.println("Escolha uma op√ß√£o");
-        System.out.println("Digite 1 para se cadastrar");
-        System.out.println("2 para realizar login");
+        System.out.println("\nEscolha uma opÁ„o");
+        System.out.println("1 - Cadastro");
+        System.out.println("2 - Login");
 
-        if (s.nextInt() == 1) {
+        s = new Scanner(System.in);
+        int escolha = s.nextInt();
+        
+         if (escolha == 1) {
             cadastrarUsuario();
-        } else if (s.nextInt() == 2) {
+        } else if (escolha == 2) {
             System.out.println("Informe seu cpf");
             loginUsuario(s.nextLong());
         } else {
-            System.out.println("Op√ß√£o inv√°lida!");
+            System.out.println("OpÁ„o inv·lida!");
             System.out.println("Saindo do sistema ");
-        }
+        } 
+         
+        s.close();
     }
 
     private static void cadastrarUsuario() {
@@ -46,15 +51,17 @@ public class UsuarioUI {
     private static void loginUsuario(Long cpf) {
         Usuario usuario = fachada.procurarUsuarioPorCpf(cpf);
         if (usuario != null) {
-            System.out.println("Ol√° " + usuario.getNome());
-            System.out.println("Escolha uma op√ß√£o");
-            System.out.println("1 - Inserir transa√ß√£o (compra)");
-            System.out.println("2 - Listar transa√ß√µes");
-            System.out.println("3 - Visualizar n√≠vel atual e vantagens");
+            System.out.println("Ol·, " + usuario.getNome() + " !");
+            System.out.println("\nEscolha uma opÁ„o");
+            System.out.println("1 - Inserir transaÁ„o (compra)");
+            System.out.println("2 - Listar histÛrico de transaÁıes");
+            System.out.println("3 - Visualizar nÌvel atual e vantagens");
             System.out.println("4 - Atualizar cadastro");
-            System.out.println("5 - Visualizar informa√ß√µes sobre per√≠odo e pontos");
+            System.out.println("5 - Visualizar informaÁıes sobre perÌodo e pontos");
 
-            switch (s.nextInt()) {
+            int escolha = s.nextInt();
+            
+            switch (escolha) {
                 case 1:
                     inserirTransacao(usuario);
                     loginUsuario(cpf);
@@ -64,21 +71,21 @@ public class UsuarioUI {
                     loginUsuario(cpf);
                     break;
                 case 3:
-                    //TODO N√≠vel
+                    //TODO Nivel
                     break;
                 case 4:
-                    //At√© ent√£o so o nome pode ser atualizado
-                    System.out.println("Informe nome para mudan√ßa");
+                    //Ate entao so o nome pode ser atualizado
+                    System.out.println("Informe nome para mudanÁa");
                     fachada.atualizarUsuario(usuario, s.next());
                     s.nextLine();
                     loginUsuario(cpf);
                     break;
                 case 5:
-                    //TODO Per√≠dodo
+                    //TODO Periodo
                     break;
                 default:
-                    System.out.println("Op√ß√£o inv√°lida!");
-                    System.out.println("Retornando ao menu inicial ");
+                    System.out.println("OpÁ„o inv·lida!");
+                    System.out.println("Retornando ao menu inicial ... ");
                     exibirMenuInicial();
                     break;
             }
@@ -90,16 +97,19 @@ public class UsuarioUI {
         System.out.println("Informe valor da compra");
         double valorCompra = s.nextDouble();
         transacao.setPreco(valorCompra);
-        System.out.println("Informe uma descri√ß√£o da compra");
+        System.out.println("Informe uma descriÁ„o da compra");
         transacao.setDescricao(s.next());
         s.nextLine();
         transacao.setDataTransacao(new Date());
-        System.out.println("Informe como ser√° a forma de pagamento da compra");
-        System.out.println("1 - Cart√£o");
+        System.out.println("Informe como ser· a forma de pagamento da compra");
+        System.out.println("1 - Cart„o");
         System.out.println("2 - Prime");
         System.out.println("3 - RappiPay");
         System.out.println("4 - QRCode");
-        switch (s.nextInt()) {
+        
+        int escolha = s.nextInt();
+        
+        switch (escolha) {
             case 1:
                 transacao.setMulti(new Cartao());
                 break;
