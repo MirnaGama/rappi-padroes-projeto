@@ -5,26 +5,20 @@ import java.util.Date;
 public class Transacao {
 
 	private int quantidadePontos;
-	private double preco;
+	private float preco;
 	private Date dataTransacao;
 	private Multiplicador multi;
 	
 	public int getQuantidadePontos() {
 		return quantidadePontos;
 	}
-	public void setQuantidadePontos(int pontos) {
-		
-		if (this.multi != null) {
-		this.quantidadePontos = this.multi.calcularPontos(pontos);
-		} else {
-			this.quantidadePontos = pontos;
-		}
-		
+	public void setQuantidadePontos(int quantidadePontos) {
+		this.quantidadePontos = quantidadePontos;
 	}
-	public double getPreco() {
+	public float getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
+	public void setPreco(float preco) {
 		this.preco = preco;
 	}
 	public Date getDataTransacao() {
