@@ -64,7 +64,7 @@ public class UsuarioUI {
     
     private static void exibirMenuInicial() {
         System.out.println("--- BEM VINDO AO SUBSISTEMA RAPPI ---");
-        System.out.println("\nEscolha uma opção");
+        System.out.println("\nEscolha uma opï¿½ï¿½o");
         System.out.println("1 - Cadastro");
         System.out.println("2 - Login");
 
@@ -77,7 +77,7 @@ public class UsuarioUI {
             System.out.println("Informe seu cpf");
             loginUsuario(s.nextLong());
         } else {
-            System.out.println("Opção inválida!");
+            System.out.println("Opï¿½ï¿½o invï¿½lida!");
             System.out.println("Saindo do sistema ");
         } 
          
@@ -93,6 +93,7 @@ public class UsuarioUI {
         usuario.setCpf(s.nextLong());
         usuario.setPeriodoAtivo(setPeriodo());
         usuario.setTransacoes(new ArrayList<>());
+        usuario.getNiveis().setNomeNivel(NivelEnum.BRONZE);
         fachada.inserirUsuario(usuario);
         exibirMenuInicial();
     }
@@ -100,13 +101,13 @@ public class UsuarioUI {
     private static void loginUsuario(Long cpf) {
         Usuario usuario = fachada.procurarUsuarioPorCpf(cpf);
         if (usuario != null) {
-            System.out.println("Olá, " + usuario.getNome() + " !");
-            System.out.println("\nEscolha uma opção");
-            System.out.println("1 - Inserir transação (compra)");
-            System.out.println("2 - Listar histórico de transações");
-            System.out.println("3 - Visualizar nível atual e vantagens");
+            System.out.println("Olï¿½, " + usuario.getNome() + " !");
+            System.out.println("\nEscolha uma opï¿½ï¿½o");
+            System.out.println("1 - Inserir transaï¿½ï¿½o (compra)");
+            System.out.println("2 - Listar histï¿½rico de transaï¿½ï¿½es");
+            System.out.println("3 - Visualizar nï¿½vel atual e vantagens");
             System.out.println("4 - Atualizar cadastro");
-            System.out.println("5 - Visualizar informações sobre período e pontos");
+            System.out.println("5 - Visualizar informaï¿½ï¿½es sobre perï¿½odo e pontos");
 
             int escolha = s.nextInt();
             
@@ -120,11 +121,11 @@ public class UsuarioUI {
                     loginUsuario(cpf);
                     break;
                 case 3:
-                    //TODO Nivel
+                    fachada.visualizarNivel(usuario);
                     break;
                 case 4:
                     //Ate entao so o nome pode ser atualizado
-                    System.out.println("Informe nome para mudança");
+                    System.out.println("Informe nome para mudanï¿½a");
                     fachada.atualizarUsuario(usuario, s.next());
                     s.nextLine();
                     loginUsuario(cpf);
@@ -133,7 +134,7 @@ public class UsuarioUI {
                     //TODO Periodo
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opï¿½ï¿½o invï¿½lida!");
                     System.out.println("Retornando ao menu inicial ... ");
                     exibirMenuInicial();
                     break;
@@ -146,12 +147,12 @@ public class UsuarioUI {
         System.out.println("Informe valor da compra");
         double valorCompra = s.nextDouble();
         transacao.setPreco(valorCompra);
-        System.out.println("Informe uma descrição da compra");
+        System.out.println("Informe uma descriï¿½ï¿½o da compra");
         transacao.setDescricao(s.next());
         s.nextLine();
         transacao.setDataTransacao(new Date());
-        System.out.println("Informe como será a forma de pagamento da compra");
-        System.out.println("1 - Cartão");
+        System.out.println("Informe como serï¿½ a forma de pagamento da compra");
+        System.out.println("1 - Cartï¿½o");
         System.out.println("2 - Prime");
         System.out.println("3 - RappiPay");
         System.out.println("4 - QRCode");

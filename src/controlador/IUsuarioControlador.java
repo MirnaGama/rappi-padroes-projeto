@@ -27,4 +27,6 @@ public interface IUsuarioControlador {
      * @return Usuario
      */
     Usuario procurarUsuarioPorCpf(Long cpf);
+
+    void visualizarNivel(Usuario usuario);
 }

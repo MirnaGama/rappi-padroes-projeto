@@ -51,4 +51,10 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
             return null;
         }
     }
+
+    @Override
+    public void visualizarNivel(Usuario usuario) {
+        System.out.println(usuario.getNiveis().getNomeNivel().toString());
+        System.out.println("Os benefícios são"+usuario.getNiveis().getBeneficios());
+    }
 }
