@@ -2,5 +2,5 @@ package entidades;
 
 public interface Multiplicador {
 
-	public float calcularPontos();
+	public int calcularPontos(int pontos);
 }
