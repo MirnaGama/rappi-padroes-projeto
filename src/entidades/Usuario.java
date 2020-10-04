@@ -1,5 +1,4 @@
 package entidades;
-import java.util.ArrayList;
 
 import java.util.List;
 
@@ -7,7 +6,7 @@ public class Usuario {
 
     private String nome;
     private Long cpf;
-    private List<Transacao> transacoes = new ArrayList<>();
+    private List<Transacao> transacoes;
     private Nivel nivel;
     private Periodo periodoAtivo;
     private List<Periodo> periodosAnteriores;

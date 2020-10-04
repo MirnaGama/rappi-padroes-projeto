@@ -27,8 +27,4 @@ public class TransacaoRepositorioImpl implements ITransacaoRepositorio {
         usuario.setTransacoes(transacoes);
     }
 
-    @Override
-    public List<Transacao> listar(Usuario usuario) {
-        return usuario.getTransacoes();
-    }
 }

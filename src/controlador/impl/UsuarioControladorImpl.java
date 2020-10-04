@@ -25,8 +25,8 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
     }
 
     @Override
-    public void inserir(Usuario usuario) {
-        if (procurarPorCpf(usuario.getCpf()) != null) {
+    public void inserirUsuario(Usuario usuario) {
+        if (repositorioUsuario.procurarPorCpf(usuario.getCpf()) != null) {
             System.out.println("Usuário já existente!");
         } else {
             repositorioUsuario.inserir(usuario);
@@ -35,7 +35,7 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
     }
 
     @Override
-    public void atualizar(Usuario usuario, String nome, List<Transacao> transacoes) {
+    public void atualizarUsuario(Usuario usuario, String nome, List<Transacao> transacoes) {
         if (nome != null) {
             repositorioUsuario.atualizar(usuario, nome, null);
         } else if (transacoes != null) {
@@ -44,8 +44,8 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
     }
 
     @Override
-    public Usuario procurarPorCpf(Long cpf) {
-        Usuario usuario = procurarPorCpf(cpf);
+    public Usuario procurarUsuarioPorCpf(Long cpf) {
+        Usuario usuario = repositorioUsuario.procurarPorCpf(cpf);
         if (usuario != null) {
             return usuario;
         } else {

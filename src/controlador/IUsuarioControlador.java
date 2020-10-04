@@ -12,7 +12,7 @@ public interface IUsuarioControlador {
      *
      * @param usuario
      */
-    void inserir(Usuario usuario);
+    void inserirUsuario(Usuario usuario);
 
     /**
      * Atualizar o usuário
@@ -21,7 +21,7 @@ public interface IUsuarioControlador {
      * @param nome
      * @param transacoes
      */
-    void atualizar(Usuario usuario, String nome, List<Transacao> transacoes);
+    void atualizarUsuario(Usuario usuario, String nome, List<Transacao> transacoes);
 
     /**
      * Procura um usuário por Cpf
@@ -29,5 +29,5 @@ public interface IUsuarioControlador {
      * @param cpf
      * @return Usuario
      */
-    Usuario procurarPorCpf(Long cpf);
+    Usuario procurarUsuarioPorCpf(Long cpf);
 }
