@@ -1,6 +1,7 @@
 package controlador.impl;
 
 import controlador.ITransacaoControlador;
+import entidades.NivelEnum;
 import entidades.Transacao;
 import entidades.Usuario;
 import repositorio.ITransacaoRepositorio;
@@ -25,6 +26,7 @@ public class TransacaoControladorImpl implements ITransacaoControlador {
     @Override
     public void inserirTransacao(Transacao transacao, Usuario usuario) {
         usuario.getPeriodoAtivo().setPontos(usuario.getPeriodoAtivo().getPontos() + transacao.getQuantidadePontos());
+        atualizarNivel(usuario);
         this.repositorioTransacao.inserir(transacao, usuario);
         System.out.println("Transação inserida com sucesso!");
     }
@@ -47,5 +49,15 @@ public class TransacaoControladorImpl implements ITransacaoControlador {
 
         }
 
+    }
+
+    private void atualizarNivel(Usuario usuario){
+        if (usuario.getPeriodoAtivo().getPontos() >= 1200 && usuario.getPeriodoAtivo().getPontos() < 4000){
+            usuario.getNiveis().setNomeNivel(NivelEnum.PRATA);
+        }else if (usuario.getPeriodoAtivo().getPontos() >= 4000 && usuario.getPeriodoAtivo().getPontos() < 10000){
+            usuario.getNiveis().setNomeNivel(NivelEnum.OURO);
+        }else if (usuario.getPeriodoAtivo().getPontos() >= 10000 ){
+            usuario.getNiveis().setNomeNivel(NivelEnum.DIAMANTE);
+        }
     }
 }

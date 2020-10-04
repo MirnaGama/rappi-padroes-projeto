@@ -52,4 +52,9 @@ public class Fachada implements ITransacaoControlador, IUsuarioControlador {
     public Usuario procurarUsuarioPorCpf(Long cpf) {
         return controladorUsuario.procurarUsuarioPorCpf(cpf);
     }
+
+    @Override
+    public void visualizarNivel(Usuario usuario) {
+        controladorUsuario.visualizarNivel(usuario);
+    }
 }

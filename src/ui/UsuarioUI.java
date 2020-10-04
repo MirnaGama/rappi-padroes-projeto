@@ -39,6 +39,7 @@ public class UsuarioUI {
         usuario.setCpf(s.nextLong());
         usuario.setPeriodoAtivo(setPeriodo());
         usuario.setTransacoes(new ArrayList<>());
+        usuario.getNiveis().setNomeNivel(NivelEnum.BRONZE);
         fachada.inserirUsuario(usuario);
         exibirMenuInicial();
     }
@@ -64,7 +65,7 @@ public class UsuarioUI {
                     loginUsuario(cpf);
                     break;
                 case 3:
-                    //TODO Nível
+                    fachada.visualizarNivel(usuario);
                     break;
                 case 4:
                     //Até então so o nome pode ser atualizado
