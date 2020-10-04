@@ -26,24 +26,23 @@ public class TransacaoControladorImpl implements ITransacaoControlador {
     public void inserirTransacao(Transacao transacao, Usuario usuario) {
         usuario.getPeriodoAtivo().setPontos(usuario.getPeriodoAtivo().getPontos() + transacao.getQuantidadePontos());
         this.repositorioTransacao.inserir(transacao, usuario);
-        System.out.println("TransaÃ§Ã£o inserida com sucesso!");
+        System.out.println("Transação inserida com sucesso!");
     }
 
     @Override
     public void listarTransacoes(Usuario usuario) {
 
         if (usuario.getTransacoes() != null && !usuario.getTransacoes().isEmpty()) {
-            System.out.println("---------- TransaÃ§Ãµes ---------");
+            System.out.println("---------- Transações ---------");
         } else {
-            System.out.println("NÃ£o existe nenhuma transaÃ§Ã£o deste usuÃ¡rio");
+            System.out.println("Não existe nenhuma transações deste usuário");
         }
 
         for (Transacao transacao : usuario.getTransacoes()) {
-            System.out.println("DescriÃ§Ã£o: " + transacao.getDescricao());
-            System.out.println("PreÃ§o: " + transacao.getPreco());
-            System.out.println("Data da transaÃ§Ã£o: " + transacao.getDataTransacao());
-            System.out.println("Quantidade de pontos gerados na transaÃ§Ã£o: " + transacao.getQuantidadePontos());
-            System.out.println(" ");
+            System.out.println("Descrição: " + transacao.getDescricao());
+            System.out.println("Preço: " + transacao.getPreco());
+            System.out.println("Data da transação: " + transacao.getDataTransacao());
+            System.out.println("Quantidade de pontos gerados na transação: " + transacao.getQuantidadePontos()+"\n");
 
         }
 

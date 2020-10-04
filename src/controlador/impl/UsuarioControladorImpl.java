@@ -27,10 +27,10 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
     @Override
     public void inserirUsuario(Usuario usuario) {
         if (repositorioUsuario.procurarPorCpf(usuario.getCpf()) != null) {
-            System.out.println("Usu√°rio j√° existente!");
+            System.out.println("Usu·rio j· existente!");
         } else {
             repositorioUsuario.inserir(usuario);
-            System.out.println("Usu√°rio cadastrado com sucesso!");
+            System.out.println("Usu·rio cadastrado com sucesso!");
         }
     }
 
@@ -47,7 +47,7 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
         if (usuario != null) {
             return usuario;
         } else {
-            System.out.println("Usu√°rio inexistente!");
+            System.out.println("Usu·rio inexistente!");
             return null;
         }
     }

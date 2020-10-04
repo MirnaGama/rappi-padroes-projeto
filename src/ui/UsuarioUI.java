@@ -3,6 +3,7 @@ package ui;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import entidades.*;
@@ -13,6 +14,54 @@ public class UsuarioUI {
     private static Fachada fachada = Fachada.getInstance();
     private static Scanner s = new Scanner(System.in);
 
+    
+    private static void popularSistema() {
+    	Usuario u = new Usuario();
+    	u.setCpf((long) 12345);
+    	u.setNome("Gloria");
+    	u.setPeriodoAtivo(setPeriodo());
+    	
+    	List<Transacao> transacoes = new ArrayList<Transacao>();
+    	Transacao t = new Transacao();
+    	
+    	Calendar c = Calendar.getInstance();
+		c.set(2019, Calendar.FEBRUARY, 28);
+		Date data = c.getTime();
+		
+    	t.setDataTransacao(data);
+    	t.setDescricao("Pizzaria");
+    	t.setPreco(75);
+    	t.setMulti(new Prime());
+    	t.setQuantidadePontos((int) t.getPreco());
+    	transacoes.add(t);
+    	
+    	t = new Transacao();
+    	c.set(2019, Calendar.MARCH, 20);
+		data = c.getTime();
+		
+		t.setDataTransacao(data);
+    	t.setDescricao("Supermercado");
+    	t.setPreco(300);
+    	t.setMulti(new Cartao());
+    	t.setQuantidadePontos((int) t.getPreco());
+    	transacoes.add(t);
+    	
+    	t = new Transacao();
+    	c.set(2019, Calendar.MARCH, 22);
+		data = c.getTime();
+		
+		t.setDataTransacao(data);
+    	t.setDescricao("Lanchonete");
+    	t.setPreco(25.50);
+    	t.setMulti(new QRCode());
+    	t.setQuantidadePontos((int) t.getPreco());
+    	transacoes.add(t);
+    	
+    	u.setTransacoes(transacoes);
+    	
+    	fachada.inserirUsuario(u);
+    }
+    
     private static void exibirMenuInicial() {
         System.out.println("--- BEM VINDO AO SUBSISTEMA RAPPI ---");
         System.out.println("\nEscolha uma opção");
@@ -141,7 +190,8 @@ public class UsuarioUI {
     }
 
     public static void main(String[] args) {
-        exibirMenuInicial();
+        popularSistema();
+    	exibirMenuInicial();
     }
 
 }
