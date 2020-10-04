@@ -1,43 +1,62 @@
 package entidades;
+
 import java.util.List;
 
 public class Usuario {
 
-	private List<Transacao> transacoes;
-	private Nivel nivel;
-	private Periodo periodoAtivo;
-	private List<Periodo> periodosAnteriores;
+    private String nome;
+    private Long cpf;
+    private List<Transacao> transacoes;
+    private Nivel nivel;
+    private Periodo periodoAtivo;
+    private List<Periodo> periodosAnteriores;
 
-	public List<Transacao> getTransacoes() {
-		return transacoes;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setTransacoes(List<Transacao> transacoes) {
-		this.transacoes = transacoes;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public Nivel getNivel() {
-		return nivel;
-	}
+    public Long getCpf() {
+        return cpf;
+    }
 
-	public void setNivel(Nivel nivel) {
-		this.nivel = nivel;
-	}
+    public void setCpf(Long cpf) {
+        this.cpf = cpf;
+    }
 
-	public Periodo getPeriodoAtivo() {
-		return periodoAtivo;
-	}
+    public List<Transacao> getTransacoes() {
+        return transacoes;
+    }
 
-	public void setPeriodoAtivo(Periodo periodoAtivo) {
-		this.periodoAtivo = periodoAtivo;
-	}
+    public void setTransacoes(List<Transacao> transacoes) {
+        this.transacoes = transacoes;
+    }
 
-	public List<Periodo> getPeriodosAnteriores() {
-		return periodosAnteriores;
-	}
+    public Nivel getNivel() {
+        return nivel;
+    }
 
-	public void setPeriodosAnteriores(List<Periodo> periodosAnteriores) {
-		this.periodosAnteriores = periodosAnteriores;
-	}
-	  
+    public void setNivel(Nivel nivel) {
+        this.nivel = nivel;
+    }
+
+    public Periodo getPeriodoAtivo() {
+        return periodoAtivo;
+    }
+
+    public void setPeriodoAtivo(Periodo periodoAtivo) {
+        this.periodoAtivo = periodoAtivo;
+    }
+
+    public List<Periodo> getPeriodosAnteriores() {
+        return periodosAnteriores;
+    }
+
+    public void setPeriodosAnteriores(List<Periodo> periodosAnteriores) {
+        this.periodosAnteriores = periodosAnteriores;
+    }
+
 }
