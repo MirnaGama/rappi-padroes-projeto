@@ -35,11 +35,9 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
     }
 
     @Override
-    public void atualizarUsuario(Usuario usuario, String nome, List<Transacao> transacoes) {
+    public void atualizarUsuario(Usuario usuario, String nome) {
         if (nome != null) {
-            repositorioUsuario.atualizar(usuario, nome, null);
-        } else if (transacoes != null) {
-            repositorioUsuario.atualizar(usuario, null, transacoes);
+            repositorioUsuario.atualizar(usuario, nome);
         }
     }
 

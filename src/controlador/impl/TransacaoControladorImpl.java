@@ -24,6 +24,7 @@ public class TransacaoControladorImpl implements ITransacaoControlador {
 
     @Override
     public void inserirTransacao(Transacao transacao, Usuario usuario) {
+        usuario.getPeriodoAtivo().setPontos(usuario.getPeriodoAtivo().getPontos() + transacao.getQuantidadePontos());
         this.repositorioTransacao.inserir(transacao, usuario);
         System.out.println("Transação inserida com sucesso!");
     }
@@ -38,9 +39,12 @@ public class TransacaoControladorImpl implements ITransacaoControlador {
         }
 
         for (Transacao transacao : usuario.getTransacoes()) {
-            System.out.println(transacao.getPreco());
-            System.out.println(transacao.getDataTransacao());
-            System.out.println(transacao.getQuantidadePontos());
+            System.out.println("Descrição: " + transacao.getDescricao());
+            System.out.println("Preço: " + transacao.getPreco());
+            System.out.println("Data da transação: " + transacao.getDataTransacao());
+            System.out.println("Quantidade de pontos gerados na transação: " + transacao.getQuantidadePontos());
+            System.out.println(" ");
+
         }
 
     }

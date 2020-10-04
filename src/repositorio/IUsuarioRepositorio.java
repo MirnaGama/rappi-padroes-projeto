@@ -37,9 +37,8 @@ public interface IUsuarioRepositorio {
      *
      * @param usuario
      * @param nome
-     * @param transacoes
      */
-    void atualizar(Usuario usuario, String nome, List<Transacao> transacoes);
+    void atualizar(Usuario usuario, String nome);
 
     /**
      * Procura um usuário por Cpf

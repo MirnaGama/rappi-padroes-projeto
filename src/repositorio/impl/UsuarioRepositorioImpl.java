@@ -5,7 +5,6 @@ import entidades.Usuario;
 import repositorio.IUsuarioRepositorio;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Implementação do repositório de usuário
@@ -25,7 +24,6 @@ public class UsuarioRepositorioImpl implements IUsuarioRepositorio {
     private UsuarioRepositorioImpl() {
         usuarios = new ArrayList<>();
     }
-
 
     @Override
     public void inserir(Usuario usuario) {
@@ -48,13 +46,9 @@ public class UsuarioRepositorioImpl implements IUsuarioRepositorio {
     }
 
     @Override
-    public void atualizar(Usuario usuario, String nome, List<Transacao> transacoes) {
-        if(nome != null){
+    public void atualizar(Usuario usuario, String nome) {
+        if (nome != null) {
             usuario.setNome(nome);
-        }
-
-        if(transacoes != null){
-            usuario.setTransacoes(transacoes);
         }
     }
 

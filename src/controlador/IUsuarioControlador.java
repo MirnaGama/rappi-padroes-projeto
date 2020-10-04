@@ -1,9 +1,7 @@
 package controlador;
 
-import entidades.Transacao;
 import entidades.Usuario;
 
-import java.util.List;
 
 public interface IUsuarioControlador {
 
@@ -19,9 +17,8 @@ public interface IUsuarioControlador {
      *
      * @param usuario
      * @param nome
-     * @param transacoes
      */
-    void atualizarUsuario(Usuario usuario, String nome, List<Transacao> transacoes);
+    void atualizarUsuario(Usuario usuario, String nome);
 
     /**
      * Procura um usuário por Cpf

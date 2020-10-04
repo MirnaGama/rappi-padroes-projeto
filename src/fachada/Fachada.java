@@ -44,8 +44,8 @@ public class Fachada implements ITransacaoControlador, IUsuarioControlador {
     }
 
     @Override
-    public void atualizarUsuario(Usuario usuario, String nome, List<Transacao> transacoes) {
-        controladorUsuario.atualizarUsuario(usuario, nome, null);
+    public void atualizarUsuario(Usuario usuario, String nome) {
+        controladorUsuario.atualizarUsuario(usuario, nome);
     }
 
     @Override
