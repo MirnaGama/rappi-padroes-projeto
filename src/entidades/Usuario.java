@@ -10,6 +10,7 @@ public class Usuario {
     private Nivel nivel;
     private Periodo periodoAtivo;
     private List<Periodo> periodosAnteriores;
+    private List<Periodo> periodos;
 
     public String getNome() {
         return nome;
@@ -22,6 +23,10 @@ public class Usuario {
     public Long getCpf() {
         return cpf;
     }
+
+    public List<Periodo> getPeriodos() { return periodos; }
+
+    public void setPeriodos(List<Periodo> periodos) { this.periodos = periodos; }
 
     public void setCpf(Long cpf) {
         this.cpf = cpf;
@@ -55,8 +60,5 @@ public class Usuario {
 		return periodosAnteriores;
 	}
 
-	public void setPeriodosAnteriores(List<Periodo> periodosAnteriores) {
-		this.periodosAnteriores = periodosAnteriores;
-	}
-	  
+	public void setPeriodosAnteriores(List<Periodo> periodosAnteriores) { this.periodosAnteriores = periodosAnteriores; }
 }
