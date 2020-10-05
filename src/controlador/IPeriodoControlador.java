@@ -14,12 +14,9 @@ public interface IPeriodoControlador {
      */
     Periodo procurarPorData(Date data);
 
-    /**
-     * Atualizar o usuário
-     *
-     * @param periodo
-     * @param pontos
-     */
     void atualizarPeriodo(List<Periodo> periodo, Date data, Integer pontos);
 
+    void popularPeriodos(Usuario usuario);
+
+    void listarPeriodos(Usuario usuario);
 }

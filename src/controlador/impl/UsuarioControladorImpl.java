@@ -1,15 +1,14 @@
 package controlador.impl;
 
 import controlador.IUsuarioControlador;
-import entidades.Periodo;
-import entidades.Transacao;
-import entidades.Usuario;
+import entidades.*;
 import repositorio.IUsuarioRepositorio;
 import repositorio.impl.UsuarioRepositorioImpl;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class UsuarioControladorImpl implements IUsuarioControlador {
@@ -56,48 +55,9 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
         }
     }
 
-    @Override
-    public void popularPeriodos(Usuario usuario) {
-        List<Periodo> periodosAno = new ArrayList<Periodo>();
-        List<Periodo> periodos = new ArrayList<Periodo>();
-        Calendar calendar = Calendar.getInstance();
-        Calendar c = Calendar.getInstance();
-        Periodo periodoAtivo = null;
-        Integer fim = 0;
-        Integer inicio = 0;
-        for (int i = 0; i <= 3; i++) {
-            Periodo p = new Periodo();
-            calendar.set(2020, inicio, 1);
-
-            p.setPeriodoInicio(calendar.getTime());
-            fim = inicio + 2;
-            calendar.set(2020, fim, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
-            p.setPeriodoFim(calendar.getTime());
-            inicio = fim + 1;
-            p.setPontos(0);
-            if (c.getTime().after(p.getPeriodoInicio()) && c.getTime().before((p.getPeriodoFim()))) {
-                periodoAtivo = p;
-            } else if (periodoAtivo == null){
-                periodosAno.add(p);
-            }
-            periodos.add(p);
-        }
-        usuario.setPeriodoAtivo(periodoAtivo);
-        usuario.setPeriodosAnteriores(periodosAno);
-        usuario.setPeriodos(periodos);
+    public void visualizarNivel(Usuario usuario) {
+        System.out.println(usuario.getNiveis().getNomeNivel().toString());
+        System.out.println("Os benefícios são" + usuario.getNiveis().getBeneficios());
     }
 
-    @Override
-    public void listarPeriodos(Usuario usuario) {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/YY");
-        System.out.println("Período atual" +
-                            "\n" + format.format(usuario.getPeriodoAtivo().getPeriodoInicio()) + " - " + format.format(usuario.getPeriodoAtivo().getPeriodoFim()) +
-                            "\n" + usuario.getPeriodoAtivo().getPontos());
-
-        for (Periodo periodo : usuario.getPeriodosAnteriores()) {
-            System.out.println("Período finalizado" +
-                                "\n" + format.format(periodo.getPeriodoInicio()) + " - " + format.format(periodo.getPeriodoFim()) +
-                                "\n" + periodo.getPontos());
-        }
-    }
 }

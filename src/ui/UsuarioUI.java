@@ -118,7 +118,7 @@ public class UsuarioUI {
                 loginUsuario(cpf);
                 break;
             case 5:
-                System.out.println("Periodos");
+                System.out.println("PERÍODOS\n");
                 fachada.listarPeriodos(usuario);
                 break;
             default:
@@ -138,6 +138,7 @@ public class UsuarioUI {
         usuario.setCpf(s.nextLong());
         usuario.setPeriodoAtivo(setPeriodo());
         usuario.setTransacoes(new ArrayList<>());
+        usuario.getNiveis().setNomeNivel(NivelEnum.BRONZE);
         fachada.inserirUsuario(usuario);
         exibirMenuInicial();
     }

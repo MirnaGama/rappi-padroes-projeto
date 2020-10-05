@@ -66,9 +66,12 @@ public class Fachada implements ITransacaoControlador, IUsuarioControlador, IPer
     public void atualizarPeriodo(List<Periodo> periodos, Date data, Integer pontos) { controladorPeriodo.atualizarPeriodo(periodos, data, pontos); }
 
     @Override
-    public void popularPeriodos(Usuario usuario) { controladorUsuario.popularPeriodos(usuario); }
+    public void popularPeriodos(Usuario usuario) { controladorPeriodo.popularPeriodos(usuario); }
 
     @Override
-    public void listarPeriodos(Usuario usuario) { controladorUsuario.listarPeriodos(usuario); }
+    public void listarPeriodos(Usuario usuario) { controladorPeriodo.listarPeriodos(usuario); }
 
+    public void visualizarNivel(Usuario usuario) {
+        controladorUsuario.visualizarNivel(usuario);
+    }
 }

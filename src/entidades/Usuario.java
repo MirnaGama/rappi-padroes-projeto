@@ -7,7 +7,7 @@ public class Usuario {
     private String nome;
     private Long cpf;
     private List<Transacao> transacoes;
-    private Nivel nivel;
+    private Niveis niveis;
     private Periodo periodoAtivo;
     private List<Periodo> periodosAnteriores;
     private List<Periodo> periodos;
@@ -40,15 +40,15 @@ public class Usuario {
 		this.transacoes = transacoes;
 	}
 
-	public Nivel getNivel() {
-		return nivel;
-	}
+    public Niveis getNiveis() {
+        return niveis;
+    }
 
-	public void setNivel(Nivel nivel) {
-		this.nivel = nivel;
-	}
+    public void setNiveis(Niveis niveis) {
+        this.niveis = niveis;
+    }
 
-	public Periodo getPeriodoAtivo() {
+    public Periodo getPeriodoAtivo() {
 		return periodoAtivo;
 	}
 
