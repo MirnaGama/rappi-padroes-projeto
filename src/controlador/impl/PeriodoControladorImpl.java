@@ -93,7 +93,7 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
 
         System.out.println("- PERÍODO ATUAL -" +
                 "\n" +
-                "\n" + format.format(usuario.getPeriodoAtivo().getPeriodoInicio()) + " - " + format.format(usuario.getPeriodoAtivo().getPeriodoFim()) +
+                "\nPrazo: " + format.format(usuario.getPeriodoAtivo().getPeriodoInicio()) + " - " + format.format(usuario.getPeriodoAtivo().getPeriodoFim()) +
                 "\n" +
                 "\n" + pontosAtuais + " de " + maxPontos + "pts" +
                 "\nNível: " + nivel.getNomeNivel() +
