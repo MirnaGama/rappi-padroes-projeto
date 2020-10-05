@@ -95,7 +95,7 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
                 "\n" +
                 "\nPrazo: " + format.format(usuario.getPeriodoAtivo().getPeriodoInicio()) + " - " + format.format(usuario.getPeriodoAtivo().getPeriodoFim()) +
                 "\n" +
-                "\n" + pontosAtuais + " de " + maxPontos + "pts" +
+                "\n" + pontosAtuais + verificarMaxPontos(pontosAtuais, maxPontos) +
                 "\nNível: " + nivel.getNomeNivel() +
                 "\n" +
                 "\nFaltam " + diasParaFinalizar(usuario.getPeriodoAtivo().getPeriodoFim()) + " dias para finalizar" +
@@ -112,7 +112,7 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
                     "\n" +
                     "\nPrazo: " + format.format(periodo.getPeriodoInicio()) + " - " + format.format(periodo.getPeriodoFim()) +
                     "\n" +
-                    "\nPontos: " + pontosAtuais + " de " + maxPontos + "pts" +
+                    "\nPontos: " + pontosAtuais + verificarMaxPontos(pontosAtuais, maxPontos) +
                     "\nNível: " + nivel.getNomeNivel() +
                     "\n-----------------------------------------");
             indice++;
@@ -141,27 +141,18 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
             pontos = 10000;
         } else if (n.getNomeNivel() == NivelEnum.BRONZE) {
             pontos = 1200;
+        } else {
+
         }
         return pontos;
     }
 
-    public Integer somarPontos(List<Periodo> periodos) {
-        Integer pontos = 0;
-        for (Periodo periodo : periodos) {
-            pontos += periodo.getPontos();
+    public String verificarMaxPontos(Integer pontosAtuais, Integer maxPontos) {
+        if (pontosAtuais < maxPontos) {
+            return " de " + maxPontos;
+        } else {
+            return "pts";
         }
-        return pontos;
-    }
-
-    public Integer somarPontosAnteriores(Integer indice, List<Periodo> periodos) {
-        Integer index = periodos.size();
-        Integer pontos = 0;
-        for(Periodo peridodo : periodos){
-            if (indice <= index) {
-                pontos += peridodo.getPontos();
-            }
-        }
-        return pontos;
     }
 
     public Integer diasParaFinalizar(Date date) {

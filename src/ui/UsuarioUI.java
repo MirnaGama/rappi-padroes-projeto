@@ -17,11 +17,14 @@ public class UsuarioUI {
     
     private static void popularSistema() {
     	Usuario u = new Usuario();
+    	Niveis n = new Niveis();
     	u.setCpf((long) 12345);
-    	u.setNome("Gloria");
-    	u.setPeriodoAtivo(setPeriodo());
+        u.setNome("Gloria");
+        u.setNiveis(n);
+        u.getNiveis().setNomeNivel(NivelEnum.BRONZE);
         fachada.popularPeriodos(u);
-
+    	// u.setPeriodoAtivo(setPeriodo());
+        
     	List<Transacao> transacoes = new ArrayList<Transacao>();
         Transacao t = new Transacao();
     	
@@ -233,12 +236,13 @@ public class UsuarioUI {
 
     private static void cadastrarUsuario() {
         Usuario usuario = new Usuario();
+        Niveis n = new Niveis();
         System.out.println("Informe seu nome");
         usuario.setNome(s.next());
         s.nextLine();
         System.out.println("Informe seu cpf");
         usuario.setCpf(s.nextLong());
-        usuario.setPeriodoAtivo(setPeriodo());
+        // usuario.setPeriodoAtivo(setPeriodo());
         usuario.setTransacoes(new ArrayList<>());
         usuario.getNiveis().setNomeNivel(NivelEnum.BRONZE);
         fachada.inserirUsuario(usuario);
