@@ -85,9 +85,9 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
 
     @Override
     public void listarPeriodos(Usuario usuario) {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/YY");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
 
-        Integer pontosAtuais = somarPontos(usuario.getPeriodos());
+        Integer pontosAtuais = usuario.getPeriodoAtivo().getPontos();
         Niveis nivel = verificarNivel(pontosAtuais);
         Integer maxPontos = verificarPontos(nivel);
 
@@ -105,7 +105,7 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
         Integer indice = 0;
         List<Periodo> periodosAnteriores = usuario.getPeriodosAnteriores();
         for (Periodo periodo : periodosAnteriores) {
-            pontosAtuais = somarPontosAnteriores(indice, periodosAnteriores);
+            pontosAtuais = periodo.getPontos();
             nivel = verificarNivel(pontosAtuais);
             maxPontos = verificarPontos(nivel);
             System.out.println("- PERÍODO FINALIZADO -" +

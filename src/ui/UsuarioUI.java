@@ -35,7 +35,7 @@ public class UsuarioUI {
     	t.setQuantidadePontos((int) t.getPreco());
     	transacoes.add(t);
         fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
-    	
+
     	t = new Transacao();
     	c.set(2020, Calendar.MARCH, 20);
 		data = c.getTime();
@@ -46,6 +46,106 @@ public class UsuarioUI {
     	t.setMulti(new Cartao());
     	t.setQuantidadePontos((int) t.getPreco());
     	transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Supermercado");
+        t.setPreco(300);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Supermercado");
+        t.setPreco(300);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Supermercado");
+        t.setPreco(300);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Supermercado");
+        t.setPreco(300);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Supermercado");
+        t.setPreco(300);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Supermercado");
+        t.setPreco(300);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 20);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Supermercado");
+        t.setPreco(300);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
         fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
     	
     	t = new Transacao();
