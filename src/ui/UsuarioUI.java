@@ -109,6 +109,7 @@ public class UsuarioUI {
                 break;
             case 3:
                 //TODO Nivel
+                exibirOpcoes(usuario, cpf);
                 break;
             case 4:
                 //Ate entao so o nome pode ser atualizado
@@ -120,6 +121,7 @@ public class UsuarioUI {
             case 5:
                 System.out.println("PERÍODOS\n");
                 fachada.listarPeriodos(usuario);
+                exibirOpcoes(usuario, cpf);
                 break;
             default:
                 System.out.println("Opção inválida!");
