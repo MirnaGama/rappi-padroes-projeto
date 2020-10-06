@@ -28,9 +28,9 @@ public class Niveis {
        }else if (nomeNivel.equals(NivelEnum.PRATA)){
            return "\n- R$37,00 OFF em bebidas.\n- R$19,00 OFF em farmacias.\n- Cashback R$15,00 em beleza.\n- Ganhe pontos a cada compra.\n- Atendimento especializado.\n";
        }else if (nomeNivel.equals(NivelEnum.OURO)){
-           return "\n- R$37,00 OFF em bebidas.\n- R$25,00 OFF em farmacias.\n- Atendimento especializado.\n- Ganhe pontos a cada compra.\n- Tenha pedidos priorit√°rios.\n";
+           return "\n- R$37,00 OFF em bebidas.\n- R$25,00 OFF em farmacias.\n- Atendimento especializado.\n- Ganhe pontos a cada compra.\n- Tenha pedidos priorit·rios.\n";
        }else if(nomeNivel.equals(NivelEnum.DIAMANTE)){
-            return "\n- R$50,00 OFF em bebidas.\n- R$37,00 OFF em farmacias.\n- Cashback R$20,00 em lar.\n- ganhe pontos a cada compra.\n- Tenha pedidos priorit√°rios.\n- Atendimento especializado,\n- Rappis avaliados como excelentes.\n";
+            return "\n- R$50,00 OFF em bebidas.\n- R$37,00 OFF em farmacias.\n- Cashback R$20,00 em lar.\n- ganhe pontos a cada compra.\n- Tenha pedidos priorit·rios.\n- Atendimento especializado.\n- Rappis avaliados como excelentes.\n";
         }
        return "";
     }
