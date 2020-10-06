@@ -7,4 +7,7 @@ public class RappiPay implements Multiplicador {
 		return  (int) (pontos * 1.5);
 	}
 
+	public String toString() {
+		return "RappiPay";
+	}
 }

@@ -91,12 +91,12 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
         Niveis nivel = verificarNivel(pontosAtuais);
         Integer maxPontos = verificarPontos(nivel);
 
-        System.out.println("- PERÍODO ATUAL -" +
+        System.out.println("- PER�ODO ATUAL -" +
                 "\n" +
                 "\nPrazo: " + format.format(usuario.getPeriodoAtivo().getPeriodoInicio()) + " - " + format.format(usuario.getPeriodoAtivo().getPeriodoFim()) +
                 "\n" +
                 "\n" + pontosAtuais + verificarMaxPontos(pontosAtuais, maxPontos) +
-                "\nNível: " + nivel.getNomeNivel() +
+                "\nNivel: " + nivel.getNomeNivel() +
                 "\n" +
                 "\nFaltam " + diasParaFinalizar(usuario.getPeriodoAtivo().getPeriodoFim()) + " dias para finalizar" +
                 "\n-----------------------------------------");
@@ -108,12 +108,12 @@ public class PeriodoControladorImpl implements IPeriodoControlador {
             pontosAtuais = periodo.getPontos();
             nivel = verificarNivel(pontosAtuais);
             maxPontos = verificarPontos(nivel);
-            System.out.println("- PERÍODO FINALIZADO -" +
+            System.out.println("- PER�ODO FINALIZADO -" +
                     "\n" +
                     "\nPrazo: " + format.format(periodo.getPeriodoInicio()) + " - " + format.format(periodo.getPeriodoFim()) +
                     "\n" +
                     "\nPontos: " + pontosAtuais + verificarMaxPontos(pontosAtuais, maxPontos) +
-                    "\nNível: " + nivel.getNomeNivel() +
+                    "\nNivel: " + nivel.getNomeNivel() +
                     "\n-----------------------------------------");
             indice++;
         }
