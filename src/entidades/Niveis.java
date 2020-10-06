@@ -24,13 +24,13 @@ public class Niveis {
 
     public String visualizarVantagens(NivelEnum nomeNivel) {
        if(nomeNivel.equals(NivelEnum.BRONZE)){
-           return "Ganhe pontos a cada compra";
+           return "\n- Ganhe pontos a cada compra.\n";
        }else if (nomeNivel.equals(NivelEnum.PRATA)){
-           return "R$37,00 OFF em bebidas, R$19,00 OFF em farmacias, Cashback R$15,00 em beleza, Genhe pontos a cada compra, atendimento especializado";
+           return "\n- R$37,00 OFF em bebidas.\n- R$19,00 OFF em farmacias.\n- Cashback R$15,00 em beleza.\n- Ganhe pontos a cada compra.\n- Atendimento especializado.\n";
        }else if (nomeNivel.equals(NivelEnum.OURO)){
-           return "R$37,00 OFF em bebidas, R$25,00 OFF em farmacias, Atendimento especializado, Ganhe pontos a cada compra, tenha pedidos prioritários";
+           return "\n- R$37,00 OFF em bebidas.\n- R$25,00 OFF em farmacias.\n- Atendimento especializado.\n- Ganhe pontos a cada compra.\n- Tenha pedidos prioritários.\n";
        }else if(nomeNivel.equals(NivelEnum.DIAMANTE)){
-            return "R$50,00 OFF em bebidas, R$37,00 OFF em farmacias, Cashback R$20,00 em lar, ganhe pontos a cada compra, tenha pedidos prioritários, Atendimento especializado, Rapis avaliados como excelentes";
+            return "\n- R$50,00 OFF em bebidas.\n- R$37,00 OFF em farmacias.\n- Cashback R$20,00 em lar.\n- ganhe pontos a cada compra.\n- Tenha pedidos prioritários.\n- Atendimento especializado,\n- Rappis avaliados como excelentes.\n";
         }
        return "";
     }

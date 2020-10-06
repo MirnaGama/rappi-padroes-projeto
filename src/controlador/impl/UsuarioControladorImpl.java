@@ -56,8 +56,8 @@ public class UsuarioControladorImpl implements IUsuarioControlador {
     }
 
     public void visualizarNivel(Usuario usuario) {
-        System.out.println(usuario.getNiveis().getNomeNivel().toString());
-        System.out.println("Os beneficios sao" + usuario.getNiveis().getBeneficios());
+        System.out.println("Seu nível atual é o: " + usuario.getNiveis().getNomeNivel().toString());
+        System.out.println("Os seus beneficios são: " + usuario.getNiveis().getBeneficios());
     }
 
 }
