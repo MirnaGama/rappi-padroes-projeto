@@ -246,6 +246,7 @@ public class UsuarioUI {
         usuario.setTransacoes(new ArrayList<>());
         usuario.getNiveis().setNomeNivel(NivelEnum.BRONZE);
         fachada.inserirUsuario(usuario);
+        fachada.popularPeriodos(usuario);
         exibirMenuInicial();
     }
 
