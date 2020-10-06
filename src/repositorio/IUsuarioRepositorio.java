@@ -1,5 +1,6 @@
 package repositorio;
 
+import entidades.Periodo;
 import entidades.Transacao;
 import entidades.Usuario;
 
@@ -48,4 +49,10 @@ public interface IUsuarioRepositorio {
      */
     Usuario procurarPorCpf(Long cpf);
 
+    /**
+     * Popula periodos de um usuário
+     *
+     * @return Usuario
+     */
+    List<Periodo> popularPeriodos();
 }

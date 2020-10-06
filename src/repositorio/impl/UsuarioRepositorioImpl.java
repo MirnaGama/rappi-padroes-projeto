@@ -1,10 +1,12 @@
 package repositorio.impl;
 
+import entidades.Periodo;
 import entidades.Transacao;
 import entidades.Usuario;
 import repositorio.IUsuarioRepositorio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implementação do repositório de usuário
@@ -59,6 +61,11 @@ public class UsuarioRepositorioImpl implements IUsuarioRepositorio {
                 return usuario;
             }
         }
+        return null;
+    }
+
+    @Override
+    public List<Periodo> popularPeriodos() {
         return null;
     }
 }

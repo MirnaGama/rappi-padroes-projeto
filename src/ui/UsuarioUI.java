@@ -17,45 +17,99 @@ public class UsuarioUI {
     
     private static void popularSistema() {
     	Usuario u = new Usuario();
+    	Niveis n = new Niveis();
     	u.setCpf((long) 12345);
-    	u.setNome("Gloria");
-    	u.setPeriodoAtivo(setPeriodo());
-    	
+        u.setNome("Gloria");
+        u.setNiveis(n);
+        u.getNiveis().setNomeNivel(NivelEnum.BRONZE);
+        fachada.popularPeriodos(u);
+        
     	List<Transacao> transacoes = new ArrayList<Transacao>();
-    	Transacao t = new Transacao();
+        Transacao t = new Transacao();
     	
     	Calendar c = Calendar.getInstance();
-		c.set(2019, Calendar.FEBRUARY, 28);
-		Date data = c.getTime();
-		
-    	t.setDataTransacao(data);
-    	t.setDescricao("Pizzaria");
+		c.set(2020, Calendar.FEBRUARY, 28);
+        Date data = c.getTime();
+        t.setDataTransacao(data);
+    	t.setDescricao("Pizza Hut");
     	t.setPreco(75);
     	t.setMulti(new Prime());
     	t.setQuantidadePontos((int) t.getPreco());
     	transacoes.add(t);
-    	
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
     	t = new Transacao();
-    	c.set(2019, Calendar.MARCH, 20);
+    	c.set(2020, Calendar.MARCH, 20);
 		data = c.getTime();
 		
 		t.setDataTransacao(data);
-    	t.setDescricao("Supermercado");
+    	t.setDescricao("Carrefour");
     	t.setPreco(300);
     	t.setMulti(new Cartao());
     	t.setQuantidadePontos((int) t.getPreco());
     	transacoes.add(t);
-    	
-    	t = new Transacao();
-    	c.set(2019, Calendar.MARCH, 22);
-		data = c.getTime();
-		
-		t.setDataTransacao(data);
-    	t.setDescricao("Lanchonete");
-    	t.setPreco(25.50);
-    	t.setMulti(new QRCode());
-    	t.setQuantidadePontos((int) t.getPreco());
-    	transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+
+        t = new Transacao();
+        c.set(2020, Calendar.JULY, 01);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Mc Donald's");
+        t.setPreco(45.50);
+        t.setMulti(new Prime());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.JULY, 04);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Carrefour");
+        t.setPreco(255);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+        
+        t = new Transacao();
+        c.set(2020, Calendar.AUGUST, 12);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Carrefour");
+        t.setPreco(150);
+        t.setMulti(new RappiPay());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+
+        t = new Transacao();
+        c.set(2020, Calendar.SEPTEMBER, 01);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Wallmart");
+        t.setPreco(355);
+        t.setMulti(new QRCode());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
+        
+        t = new Transacao();
+        c.set(2020, Calendar.SEPTEMBER, 03);
+        data = c.getTime();
+
+        t.setDataTransacao(data);
+        t.setDescricao("Drogasil");
+        t.setPreco(56.50);
+        t.setMulti(new Cartao());
+        t.setQuantidadePontos((int) t.getPreco());
+        transacoes.add(t);
+        fachada.atualizarPeriodo(u.getPeriodos(), data, t.getQuantidadePontos());
     	
     	u.setTransacoes(transacoes);
     	
@@ -64,7 +118,7 @@ public class UsuarioUI {
     
     private static void exibirMenuInicial() {
         System.out.println("--- BEM VINDO AO SUBSISTEMA RAPPI ---");
-        System.out.println("\nEscolha uma opção");
+        System.out.println("\nEscolha uma opção:");
         System.out.println("1 - Cadastro");
         System.out.println("2 - Login");
 
@@ -84,109 +138,115 @@ public class UsuarioUI {
         s.close();
     }
 
+    private static void exibirOpcoes(Usuario usuario, Long cpf) {
+        System.out.println("Escolha o que deseja fazer a seguir: ");
+        System.out.println("1 - Inserir transação (compra)");
+        System.out.println("2 - Listar histórico de transações");
+        System.out.println("3 - Visualizar nível atual e vantagens");
+        System.out.println("4 - Atualizar cadastro");
+        System.out.println("5 - Visualizar informações sobre período e pontos");
+
+        int escolha = s.nextInt();
+
+        switch (escolha) {
+            case 1:
+                inserirTransacao(usuario);
+                loginUsuario(cpf);
+                break;
+            case 2:
+                fachada.listarTransacoes(usuario);
+                loginUsuario(cpf);
+                break;
+            case 3:
+                fachada.visualizarNivel(usuario);
+                exibirOpcoes(usuario, cpf);
+                break;
+            case 4:
+                //Ate entao so o nome pode ser atualizado
+                System.out.println("Informe nome para mudança");
+                fachada.atualizarUsuario(usuario, s.next());
+                s.nextLine();
+                loginUsuario(cpf);
+                break;
+            case 5:
+                System.out.println("PERÍODOS\n");
+                fachada.listarPeriodos(usuario);
+                exibirOpcoes(usuario, cpf);
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                System.out.println("Retornando ao menu inicial ... ");
+                exibirMenuInicial();
+                break;
+        }
+    }
+
     private static void cadastrarUsuario() {
         Usuario usuario = new Usuario();
+        Niveis n = new Niveis();
+        usuario.setNiveis(n);
         System.out.println("Informe seu nome");
         usuario.setNome(s.next());
         s.nextLine();
         System.out.println("Informe seu cpf");
         usuario.setCpf(s.nextLong());
-        usuario.setPeriodoAtivo(setPeriodo());
         usuario.setTransacoes(new ArrayList<>());
+        usuario.getNiveis().setNomeNivel(NivelEnum.BRONZE);
         fachada.inserirUsuario(usuario);
+        fachada.popularPeriodos(usuario);
         exibirMenuInicial();
     }
 
     private static void loginUsuario(Long cpf) {
         Usuario usuario = fachada.procurarUsuarioPorCpf(cpf);
         if (usuario != null) {
-            System.out.println("Olá, " + usuario.getNome() + " !");
-            System.out.println("\nEscolha uma opção");
-            System.out.println("1 - Inserir transação (compra)");
-            System.out.println("2 - Listar histórico de transações");
-            System.out.println("3 - Visualizar nível atual e vantagens");
-            System.out.println("4 - Atualizar cadastro");
-            System.out.println("5 - Visualizar informações sobre período e pontos");
-
-            int escolha = s.nextInt();
-            
-            switch (escolha) {
-                case 1:
-                    inserirTransacao(usuario);
-                    loginUsuario(cpf);
-                    break;
-                case 2:
-                    fachada.listarTransacoes(usuario);
-                    loginUsuario(cpf);
-                    break;
-                case 3:
-                    //TODO Nivel
-                    break;
-                case 4:
-                    //Ate entao so o nome pode ser atualizado
-                    System.out.println("Informe nome para mudança");
-                    fachada.atualizarUsuario(usuario, s.next());
-                    s.nextLine();
-                    loginUsuario(cpf);
-                    break;
-                case 5:
-                    //TODO Periodo
-                    break;
-                default:
-                    System.out.println("Opção inválida!");
-                    System.out.println("Retornando ao menu inicial ... ");
-                    exibirMenuInicial();
-                    break;
-            }
+            System.out.println("\nOlá, " + usuario.getNome() + "! Bem vindo(a)!\n");
+            exibirOpcoes(usuario, cpf);
+        } else {
+        	exibirMenuInicial();
         }
     }
 
     private static void inserirTransacao(Usuario usuario) {
+    	
         Transacao transacao = new Transacao();
-        System.out.println("Informe valor da compra");
+        System.out.println("Informe valor da compra:");
         double valorCompra = s.nextDouble();
         transacao.setPreco(valorCompra);
-        System.out.println("Informe uma descrição da compra");
+        System.out.println("Informe uma descrição da compra:");
         transacao.setDescricao(s.next());
         s.nextLine();
         transacao.setDataTransacao(new Date());
-        System.out.println("Informe como será a forma de pagamento da compra");
-        System.out.println("1 - Cartão");
-        System.out.println("2 - Prime");
-        System.out.println("3 - RappiPay");
-        System.out.println("4 - QRCode");
+        System.out.println("Informe a forma de pagamento:");
+        System.out.println("1 - Dinheiro");
+        System.out.println("2 - Cartão");
+        System.out.println("3 - Prime");
+        System.out.println("4 - RappiPay");
+        System.out.println("5 - QRCode");
         
         int escolha = s.nextInt();
         
-        switch (escolha) {
+        switch (escolha) {       
             case 1:
+            	transacao.setMulti(null);
+            	break;
+            case 2:
                 transacao.setMulti(new Cartao());
                 break;
-            case 2:
+            case 3:
                 transacao.setMulti(new Prime());
                 break;
-            case 3:
+            case 4:
                 transacao.setMulti(new RappiPay());
                 break;
-            case 4:
+            case 5:
                 transacao.setMulti(new QRCode());
                 break;
         }
         transacao.setQuantidadePontos((int) valorCompra);
+        fachada.atualizarPeriodo(usuario.getPeriodos(), new Date(), transacao.getQuantidadePontos());
         fachada.inserirTransacao(transacao, usuario);
-    }
 
-    private static Periodo setPeriodo() {
-        Calendar c1 = Calendar.getInstance();
-        Date dateNow = c1.getTime();
-
-        c1.add(Calendar.MONTH, 3);
-        Date dateFinal = c1.getTime();
-        Periodo periodo = new Periodo();
-        periodo.setPeriodoInicio(dateNow);
-        periodo.setPeriodoFim(dateFinal);
-        periodo.setPontos(0);
-        return periodo;
     }
 
     public static void main(String[] args) {

@@ -6,4 +6,8 @@ public class Prime implements Multiplicador {
 	public int calcularPontos(int pontos) {
 		return  pontos * 2;
 	}
+	
+	public String toString() {
+		return "Prime";
+	}
 }

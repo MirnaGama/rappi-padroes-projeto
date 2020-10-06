@@ -6,7 +6,7 @@ import entidades.Usuario;
 public interface IUsuarioControlador {
 
     /**
-     * Inseri um usuário
+     * Inserir um usuário
      *
      * @param usuario
      */
@@ -27,4 +27,6 @@ public interface IUsuarioControlador {
      * @return Usuario
      */
     Usuario procurarUsuarioPorCpf(Long cpf);
+
+    void visualizarNivel(Usuario usuario);
 }

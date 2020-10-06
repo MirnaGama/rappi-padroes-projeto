@@ -7,4 +7,7 @@ public class Cartao implements Multiplicador {
 		return  (int) (pontos * 1.5);
 	}
 
+	public String toString() {
+		return "Cartão";
+	}
 }
