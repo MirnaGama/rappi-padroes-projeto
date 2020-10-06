@@ -1,5 +1,7 @@
 package controlador.impl;
 
+import java.text.SimpleDateFormat;
+
 import controlador.ITransacaoControlador;
 import entidades.NivelEnum;
 import entidades.Transacao;
@@ -34,16 +36,19 @@ public class TransacaoControladorImpl implements ITransacaoControlador {
     @Override
     public void listarTransacoes(Usuario usuario) {
 
+    	SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
+    	
         if (usuario.getTransacoes() != null && !usuario.getTransacoes().isEmpty()) {
             System.out.println("---------- Transações ---------");
         } else {
-            System.out.println("Não existe nenhuma transações deste usuário");
+            System.out.println("Não existe nenhuma transação deste usuário");
         }
 
         for (Transacao transacao : usuario.getTransacoes()) {
             System.out.println("Descrição: " + transacao.getDescricao());
             System.out.println("Preço: " + transacao.getPreco());
-            System.out.println("Data da transação: " + transacao.getDataTransacao());
+            System.out.println("Data: " + format.format(transacao.getDataTransacao()));
+            System.out.println("Forma de pagamento: " + (transacao.getMulti() == null ? "Dinheiro" : transacao.getMulti().toString()));
             System.out.println("Quantidade de pontos gerados na transação: " + transacao.getQuantidadePontos()+"\n");
 
         }
